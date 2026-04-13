@@ -1,2 +1,3 @@
 # Python-Projects
-Python projects that I have created
+
+A general repository that acts as a table of contents for the different Python projects. 
