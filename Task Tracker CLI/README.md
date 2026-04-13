@@ -29,9 +29,9 @@ Task Tracker CLI is a command-line application built with Python that manages ta
 
 
 
-# Technical Implementation
+# TECHNICAL IMPLEMENTATIONS
 
-## Key Design Decisions
+## KEY DESIGN DECISIONS
 
 * Data Structures Matter: Hashmap/dictionary lookups outperform list searches for large datasets
 * Dispatcher Pattern: Eliminates if/else chains and improves maintainability
@@ -39,7 +39,7 @@ Task Tracker CLI is a command-line application built with Python that manages ta
 * Storage – JSON storage with timestamps enables reliable data recovery and track trails for task modifications.
 * Modular Functions – Each operation (add, list, delete, update) is implemented as a separate function, improving testability and reusability.
 
-# Connection to Hardware Engineering
+# CONNECTION TO HARDWARE ENGINEERING
 
 This project demonstrates two skills essential to hardware engineering:
 
@@ -47,7 +47,7 @@ This project demonstrates two skills essential to hardware engineering:
 
 **Program Organization** – Well-structured code is critical for collaboration and scalability. Hardware engineering teams depend on organized codebases to understand project goals, track remaining tasks, and integrate new features. Scalable designs, like the hashmap structure, make it straightforward to add functionality without changing essential code.
 
-## Lessons Learned
+## LESSONS LEARNED
 
 * Data structure selection directly impacts performance under higher loads
 * Dispatcher patterns improve code clarity and adaptability
