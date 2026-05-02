@@ -1,12 +1,12 @@
 # Sensor Data Analysis
 
 ## Introduction
-Data analysis is an essential skill in hardware engineering, used in daily testing. These projects cover the three essential Python libraries for hardware data analysis, **NumPy**, **Pandas**, and **Matplotlib**,
-taking raw datasets to analysis-ready outputs.
+Data analysis is an essential skill in hardware engineering, used in daily testing. These projects cover the three essential Python libraries for hardware data analysis, **NumPy**, **Pandas**, and **Matplotlib**, taking raw datasets to analysis-ready outputs.
 
 ## NumPy Project
-Processes a human activity dataset (jogging, walking, sitting) from a CSV file and 
-computes the RMS (Root Mean Square) value per activity using vectorized operations.
+Processes a human activity dataset (jogging, walking, sitting) from a CSV file and computes the RMS (Root Mean Square) value per activity using vectorized operations.
+
+Dataset: https://www.kaggle.com/datasets/die9origephit/human-activity-recognition
 
 ### Learnings
 - **Vectorized math** — applying operations to every element without loops
@@ -20,6 +20,8 @@ computes the RMS (Root Mean Square) value per activity using vectorized operatio
 Processes a solar power generation dataset, then cleans the raw data to compute the mean, std, 
 and max by Source ID, and outputs flagged readings exceeding 3σ from the mean.
 
+DataSet: https://www.kaggle.com/datasets/anikannal/solar-power-generation-data
+
 ### Learnings
 - **Data loading** — importing CSVs with column names and index handling preserved
 - **Cleaning** — handling missing values with fillna, dropna, and interpolate
@@ -31,6 +33,8 @@ and max by Source ID, and outputs flagged readings exceeding 3σ from the mean.
 Visualizes the solar power dataset, comparing AC and DC power output on a shared 
 plot with a threshold line flagging exceeding power limits.
 
+Dataset: https://www.kaggle.com/datasets/anikannal/solar-power-generation-data
+
 ### Learnings
 - **Subplots** — plotting multiple channels on a shared figure
 - **Threshold annotation** — drawing limit lines with axhline and labeling exceeding data
@@ -38,9 +42,6 @@ plot with a threshold line flagging exceeding power limits.
 - **Figure export** — saving plot at 300 DPI for report-quality output
 
 ## Connection to Hardware Engineering
-- **NumPy** — automates large-scale numerical operations on sensor data, replacing 
-  manual calculations with reliable, repeatable scripts
-- **Pandas** — cleans and organizes raw measurement logs into structured datasets 
-  ready for analysis or reporting
-- **Matplotlib** — turns thousands of data points into clear visual outputs that 
-  can be saved and shared in engineering reports
+- **NumPy** — automates large-scale numerical operations on sensor data, replacing manual calculations with reliable, repeatable scripts
+- **Pandas** — cleans and organizes raw measurement logs into structured datasets ready for analysis or reporting
+- **Matplotlib** — turns thousands of data points into clear visual outputs that can be saved and shared in engineering reports
