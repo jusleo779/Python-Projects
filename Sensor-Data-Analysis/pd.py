@@ -13,9 +13,9 @@ dataset = dataset.dropna(subset=["DC_POWER", "AC_POWER"])     # removes rows wit
 
 def cleanV1():#original version 
     # DC power
-    pwrDC_m =  dataset.groupby("SOURCE_KEY")["DC_POWER"].transform("mean")
-    pwrDC_std = dataset.groupby("SOURCE_KEY")["DC_POWER"].transform("std")
-    pwrDC_max = dataset.groupby("SOURCE_KEY")["DC_POWER"].transform("max")
+    pwrDC_m =  dataset.groupby("SOURCE_KEY")["DC_POWER"].transform("mean") # groups by the same values in SOURCE_KEY
+    pwrDC_std = dataset.groupby("SOURCE_KEY")["DC_POWER"].transform("std") # calls the specific column it's comparing the values in ["DC_POWER"] 
+    pwrDC_max = dataset.groupby("SOURCE_KEY")["DC_POWER"].transform("max") # transform creates and puts it in it's own series
 
 
     #AC power
@@ -33,12 +33,12 @@ def cleanV1():#original version
     tY_std = dataset.groupby("SOURCE_KEY")["TOTAL_YIELD"].transform("std")
     tY_max = dataset.groupby("SOURCE_KEY")["TOTAL_YIELD"].transform("max")
 
-    dc_f = dataset[(dataset.DC_POWER > (pwrDC_m + 3 * pwrDC_std)) | (dataset.DC_POWER < (pwrDC_m - 3 * pwrDC_std))]
+    dc_f = dataset[(dataset.DC_POWER > (pwrDC_m + 3 * pwrDC_std)) | (dataset.DC_POWER < (pwrDC_m - 3 * pwrDC_std))] # comparing the if its outside the 3 standard deviations from average
     ac_f = dataset[(dataset.AC_POWER > (pwrAC_m + 3 * pwrAC_std)) | (dataset.AC_POWER < (pwrAC_m - 3 * pwrAC_std))]
     dy_f = dataset[(dataset.DAILY_YIELD > (dY_m + 3 * dY_std)) | (dataset.DAILY_YIELD < (dY_m - 3 * dY_std))]
     ty_f = dataset[(dataset.TOTAL_YIELD > (tY_m + 3 * tY_std)) | (dataset.TOTAL_YIELD < (tY_m - 3 * tY_std))]
 
-    print("DC flagged:\n", dc_f )
+    print("DC flagged:\n", dc_f )# prints flagged values
     print("AC flagged:\n", ac_f)
     print("DY flagged:\n", dy_f)
     print("TY flagged:\n", ty_f )
@@ -51,12 +51,12 @@ def cleanV1():#original version
     
 def cleanV2():# more advanced version
     #grouping & calling math function in one DataFrame
-    source_KEY = dataset.groupby("SOURCE_KEY").agg({"DC_POWER": ["mean","std","max"], 
-                                                    "AC_POWER": ["mean","std","max"], 
+    source_KEY = dataset.groupby("SOURCE_KEY").agg({"DC_POWER": ["mean","std","max"],     # creates a dataset grouping by "SOURCE_KEY" and using the data under the column "DC_POWER"
+                                                    "AC_POWER": ["mean","std","max"],     # it will do the math operations and create seperate columns/ rows for the different corresponding ouputs
                                                     "DAILY_YIELD": ["mean","std","max"],
                                                     "TOTAL_YIELD": ["mean","std","max"] }).reset_index()
     
-    #combined the tuples for singular name for DataFrame 
+    #combined the tuples for singular name for DataFrame instead of stacked in 2 rows
     new_val = []
     for i in source_KEY.columns:
         if(i[0] in ["DC_POWER","AC_POWER", "DAILY_YIELD" , "TOTAL_YIELD"] and i[1] in ["mean","std","max"] ):
