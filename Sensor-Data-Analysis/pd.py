@@ -7,8 +7,9 @@ dataset = pd.read_csv("Plant_1_Generation_Data.csv")
 dataset["Date_time_parsed"] = pd.to_datetime(dataset["DATE_TIME"], format ="%d-%m-%Y %H:%M")
 
 #Cleans out the PLANT_ID which is all the same number 
-dataset.drop(["PLANT_ID"], axis = 1)
-
+dataset = dataset.drop(columns=["PLANT_ID"]) 
+print(dataset.isna().sum())                     # check for missing values
+dataset = dataset.dropna(subset=["DC_POWER", "AC_POWER"])     # removes rows with nothing in it (ex. NaN) 
 
 def cleanV1():#original version 
     # DC power
