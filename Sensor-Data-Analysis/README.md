@@ -12,9 +12,9 @@ Dataset: https://www.kaggle.com/datasets/die9origephit/human-activity-recognitio
 - **Vectorized math** — applying operations to every element without loops
 - **Boolean masking** — filtering arrays using conditions directly in the index
 - **Broadcasting** — automatic resizing of arrays to match shapes for operations
-- **Fancy indexing** — selecting multiple indices in a single call
+- **Fancy indexing** — selecting multiple indices in a single call  **(NOT INCLUDE IN MY NP SCRIPT)**
 - **Slicing** — extracting ranges of data with custom step sizes
-- **dtypes** — managing variable types and bit sizing for memory efficiency
+- **dtypes** — managing variable types and bit sizing for memory efficiency **(NOT INCLUDE IN MY NP SCRIPT)**
 
 ## Pandas Project
 Processes a solar power generation dataset, then cleans the raw data to compute the mean, std, 
